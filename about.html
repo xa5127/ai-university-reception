@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About | AI Reception</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ⭐ CLEAN HEADER (NO DUPLICATE LOGO / NO CHATBOT PAGE) ⭐ -->
+<header>
+    <h1>AI University Reception</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="lostfound.html">Lost & Found</a>
+        <a href="coop.html">COOP</a>
+        <a href="faculty.html">Faculty Directory</a>
+        <a href="courseinfo.html">Course Information</a>
+        <a href="courseequalization.html">Course Equalization</a>
+        <a href="navigation.html">Campus Navigation</a>
+    </nav>
+
+    <div class="right-header">
+        <button id="theme-toggle">🌙</button>
+        <img src="images/logo.png" class="logo">
+    </div>
+</header>
+
+<!-- ⭐ MAIN CONTENT ⭐ -->
+<main class="content">
+
+<h2>About the AI Reception</h2>
+<p>
+ The AI University Reception is a smart digital assistant designed
+ to help students, staff, and visitors access important academic and
+ campus information instantly. It works as a 24/7 virtual front desk,
+ free from human wait times or office hours.
+</p>
+
+<h3>Purpose of the AI Reception</h3>
+<p>
+ Our goal is to centralize university information and make it easier
+ for students to find answers without searching multiple sources.
+ The AI Reception reduces confusion, improves communication, and offers
+ quick, accurate guidance on academic processes and services.
+</p>
+
+<ul>
+<li>Answer common student questions instantly</li>
+<li>Reduce waiting time at physical reception desks</li>
+<li>Guide students to the correct departments</li>
+<li>Provide COOP, advising, and campus support information</li>
+</ul>
+
+<h3>What Students Can Ask</h3>
+<ul>
+<li>Tuition, fees, and finance questions</li>
+<li>Course information and prerequisites</li>
+<li>COOP requirements and steps</li>
+<li>Campus navigation</li>
+<li>Faculty contact details</li>
+<li>IT support and troubleshooting</li>
+</ul>
+
+</main>
+
+<footer>
+<small>AI University Reception — Developed for UBT</small>
+</footer>
+
+<!-- ⭐ FLOATING CHAT WIDGET ⭐ -->
+<div id="chat-widget">
+    <div id="chat-header">
+        AI Assistant
+        <span id="chat-close">×</span>
+    </div>
+
+    <div id="chat-window"></div>
+
+    <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Type your message...">
+        <button id="chat-send">Send</button>
+    </div>
+</div>
+
+<!-- Chat Button -->
+<div id="chat-button">💬</div>
+
+<!-- Scripts -->
+<script src="app.js"></script>
+<script src="chatwidget.js"></script>
+
+</body>
+</html>

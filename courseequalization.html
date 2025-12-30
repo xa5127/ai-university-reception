@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Equalization | AI Reception</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- ⭐ GLOBAL HEADER ⭐ -->
+  <header>
+    <div class="left-header">
+      <h1>AI University Reception</h1>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="lostfound.html">Lost & Found</a>
+      <a href="coop.html">COOP</a>
+      <a href="faculty.html">Faculty Directory</a>
+      <a href="courseinfo.html">Course Information</a>
+      <a href="courseequalization.html" class="active">Course Equalization</a>
+      <a href="navigation.html">Campus Navigation</a>
+    </nav>
+
+    <div class="right-header">
+      <button id="theme-toggle" class="theme-btn">🌙</button>
+      <img src="images/logo.png" class="logo" alt="UBT Logo">
+    </div>
+  </header>
+
+  <!-- ⭐ MAIN CONTENT ⭐ -->
+  <main class="content eq-page">
+
+    <!-- HERO -->
+    <section class="hero hero-eq">
+      <h2>Course Equalization Assistant</h2>
+      <p>
+        Use this wizard to compare a course you studied at another institution with a UBT / BAIS course.
+        The system will <strong>suggest</strong> whether it is likely to be equalized – on the spot.
+      </p>
+      <div class="pill-row">
+        <span class="pill">Step 1: Your previous course</span>
+        <span class="pill">Step 2: Match to UBT course</span>
+        <span class="pill">Step 3: Suggested decision</span>
+      </div>
+    </section>
+
+    <!-- STEPPER HEADER -->
+    <section class="course-section">
+      <h3 class="section-title">Equalization Wizard</h3>
+
+      <div class="eq-steps-indicator">
+        <button class="eq-step-indicator active" data-step="1">
+          <span>1</span> Previous Course
+        </button>
+        <button class="eq-step-indicator" data-step="2">
+          <span>2</span> Match with UBT Course
+        </button>
+        <button class="eq-step-indicator" data-step="3">
+          <span>3</span> Suggested Decision
+        </button>
+      </div>
+    </section>
+
+    <!-- WIZARD LAYOUT -->
+    <section class="course-section eq-layout">
+      <!-- LEFT: STEPS -->
+      <div class="eq-main">
+
+        <!-- STEP 1 -->
+        <div class="eq-step-panel" data-step-panel="1">
+          <h4 class="eq-step-title">Step 1 – Previous Institution Course</h4>
+
+          <div class="course-controls eq-controls">
+            <div class="control-group">
+              <label for="prev-institution">Institution name</label>
+              <input type="text" id="prev-institution"
+                     placeholder="Example: XYZ University">
+            </div>
+
+            <div class="control-group">
+              <label for="prev-code">Course code</label>
+              <input type="text" id="prev-code"
+                     placeholder="Example: CIS 201">
+            </div>
+
+            <div class="control-group">
+              <label for="prev-name">Course name</label>
+              <input type="text" id="prev-name"
+                     placeholder="Example: Database Systems I">
+            </div>
+
+            <div class="control-group">
+              <label for="prev-credits">Credit hours</label>
+              <input type="number" id="prev-credits" min="0" step="0.5"
+                     placeholder="e.g. 3">
+            </div>
+
+            <div class="control-group">
+              <label for="prev-grade">Grade obtained</label>
+              <select id="prev-grade">
+                <option value="">Select grade</option>
+                <option value="A+">A+</option>
+                <option value="A">A</option>
+                <option value="B+">B+</option>
+                <option value="B">B</option>
+                <option value="C+">C+</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="F">F</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="control-group eq-textarea-group">
+            <label for="prev-topics">Main topics covered (short syllabus)</label>
+            <textarea id="prev-topics" rows="4"
+                      placeholder="List the main topics, for example: &#10;- ER modelling &#10;- SQL queries &#10;- Normalization &#10;- Transactions and indexing"></textarea>
+          </div>
+
+          <div class="eq-step-actions">
+            <button class="eq-btn-next" id="eq-next-1">Next: Match UBT Course →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="eq-step-panel hidden" data-step-panel="2">
+          <h4 class="eq-step-title">Step 2 – Match to UBT / BAIS Course</h4>
+
+          <p class="eq-hint">
+            Select the UBT course that is closest in content to your previous course.
+          </p>
+
+          <div class="course-controls eq-controls">
+            <div class="control-group">
+              <label for="ubt-course">UBT course</label>
+              <select id="ubt-course">
+                <option value="">Select a UBT course</option>
+                <!-- filled by JS -->
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="ubt-notes">Notes for advisor (optional)</label>
+              <textarea id="ubt-notes" rows="3"
+                        placeholder="Example: This course used the same textbook as BAIS210 and included advanced SQL topics."></textarea>
+            </div>
+          </div>
+
+          <div class="eq-step-actions">
+            <button class="eq-btn-secondary" id="eq-prev-2">← Back</button>
+            <button class="eq-btn-next" id="eq-next-2">Next: See Suggested Decision →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="eq-step-panel hidden" data-step-panel="3">
+          <h4 class="eq-step-title">Step 3 – Suggested Equalization Decision</h4>
+
+          <p class="eq-hint">
+            This is a <strong>non‑official</strong> suggestion based on the information you entered.
+            The final decision is always made by the college equalization committee.
+          </p>
+
+          <div id="eq-decision-card" class="eq-decision-card">
+            <span class="eq-decision-badge" id="eq-decision-badge">No decision yet</span>
+            <h4 id="eq-decision-title">Fill the previous steps and click “Evaluate”</h4>
+            <p id="eq-decision-reason">
+              Once evaluated, you will see the suggested result with a short explanation here.
+            </p>
+          </div>
+
+          <div class="eq-step-actions">
+            <button class="eq-btn-secondary" id="eq-prev-3">← Back</button>
+            <button class="eq-btn-primary" id="eq-evaluate">Evaluate equalization</button>
+          </div>
+
+          <p id="eq-error" class="eq-error-message" style="display:none;">
+            Please complete the required fields in Steps 1 and 2 before evaluating.
+          </p>
+
+          <div class="eq-summary-card">
+            <h4>Summary of Entered Data</h4>
+            <ul id="eq-summary-list" class="eq-summary-list">
+              <li>No data yet. Fill the wizard to see a summary.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: SIDE INFO -->
+      <aside class="eq-side">
+        <h4 class="section-title">Equalization Rules (Simplified)</h4>
+        <ul class="tight-list">
+          <li>✔ Course content must strongly match the UBT course.</li>
+          <li>✔ Credit hours should be equal or higher.</li>
+          <li>✔ Minimum acceptable grade is usually <strong>C</strong> (or higher).</li>
+          <li>✔ Course must be from an accredited institution.</li>
+        </ul>
+        <p class="eq-note">
+          This assistant helps students and advisors quickly estimate if equalization is reasonable
+          before submitting any official request.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <small>AI University Reception — Developed for UBT</small>
+  </footer>
+
+  <!-- Chat widget (same as other pages) -->
+  <div id="chat-widget">
+    <div id="chat-header">
+      AI Assistant
+      <span id="chat-close">×</span>
+    </div>
+    <div id="chat-window"></div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Type your message...">
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+
+  <div id="chat-button">💬</div>
+
+  <script src="app.js"></script>
+  <script src="chatwidget.js"></script>
+  <script src="courseequalization.js"></script>
+</body>
+</html>

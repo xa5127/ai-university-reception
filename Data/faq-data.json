@@ -1,0 +1,237 @@
+[
+  {
+    "question": "How can I apply for the sibling discount?",
+    "answer": "The sibling discount cannot be done online in the Opera System. You must visit the Finance Department at the beginning of the semester to apply manually, since it’s not available in the middle of the term.",
+    "keywords": ["sibling", "discount", "sibling discount"]
+  },
+  {
+    "question": "I paid twice, and my schedule didn’t open. Why?",
+    "answer": "Wait for the 'Payment Successful' message before closing the page. If you don’t, the system won’t record the payment and you might pay again by mistake. Contact the Finance Department and inform them you made multiple payments so they can verify.",
+    "keywords": ["paid twice", "double payment", "payment issue"]
+  },
+  {
+    "question": "I transferred through IBAN but the payment hasn’t appeared yet. Why?",
+    "answer": "Bank transfers usually take 24–48 hours to appear after Finance confirms the transaction. This delay is normal.",
+    "keywords": ["bank transfer", "transfer delay", "iban payment"]
+  },
+  {
+    "question": "I paid half of the amount, but my schedule was deleted and didn’t come back. Why?",
+    "answer": "After the deletion period, the schedule will not return unless you pay the full amount. Partial payments do not restore the schedule.",
+    "keywords": ["schedule removed", "deleted schedule", "partial payment"]
+  },
+  {
+    "question": "How can I know if I’m eligible for a scholarship?",
+    "answer": "Scholarships aren’t automatic. Visit Finance at the start of the semester and submit your documents. Approval depends on your GPA and requirements.",
+    "keywords": ["scholarship eligibility", "scholarship"]
+  },
+  {
+    "question": "Where can I find the registration, swap, and drop dates?",
+    "answer": "You can find all the dates in the Opera System → Services → Calendar, where all registration, drop, and swap periods are listed.",
+    "keywords": ["registration calendar", "swap dates", "drop dates"]
+  },
+  {
+    "question": "How much is the late registration fee?",
+    "answer": "The late registration fee is 100 SAR per credit hour. Check the exact period in Opera → Services → Calendar.",
+    "keywords": ["late registration", "registration fee"]
+  },
+  {
+    "question": "How much is the swap section fee?",
+    "answer": "The swap section fee is 100 SAR per section. Dates are listed in Opera → Services → Calendar.",
+    "keywords": ["swap fee", "section swap"]
+  },
+  {
+    "question": "Where can I get my Identification Letter?",
+    "answer": "Go to Opera → Services → Student Letter → Identification Letter. You can download or print it directly.",
+    "keywords": ["identification letter", "student letter"]
+  },
+  {
+    "question": "How can I pay the Semester Fees?",
+    "answer": "Go to Opera → Services → Online Payment → Semester Fees. These fees must be paid at the beginning of the semester to open your schedule.",
+    "keywords": ["semester fees", "online payment"]
+  },
+  {
+    "question": "How can I pay the cost of course registration?",
+    "answer": "Go to Opera → Services → Online Payment → Cost of Course Registration.",
+    "keywords": ["course registration fees", "course cost"]
+  },
+  {
+    "question": "How can I pay the placement test fees?",
+    "answer": "Go to Opera → Services → Online Payment → Cost of Placement Test.",
+    "keywords": ["placement test", "test fees"]
+  },
+  {
+    "question": "How can I pay for the transcript fees?",
+    "answer": "Go to Opera → Services → Online Payment → Transcript Fees.",
+    "keywords": ["transcript fees"]
+  },
+  {
+    "question": "How can I pay for book fees?",
+    "answer": "Go to Opera → Services → Online Payment → Cost of Book.",
+    "keywords": ["book fees", "cost of book"]
+  },
+  {
+    "question": "What payment methods are accepted?",
+    "answer": "You can pay using: Bank card (mada, Visa, MasterCard, American Express), installment plan (for specific cases), or bank transfer through your own IBAN only. Do NOT use another student’s IBAN.",
+    "keywords": ["payment methods", "mada", "visa", "iban"]
+  },
+  {
+    "question": "How can I know how much I still need to pay?",
+    "answer": "Open Opera, click Student, and look for the Balance section. It shows how much you still need to pay.",
+    "keywords": ["balance", "remaining fees", "how much to pay"]
+  },
+  {
+    "question": "How can I find my IBAN number?",
+    "answer": "On the Opera Student page, under the Balance section, you’ll see your Bank Name and IBAN number. Every student has a unique IBAN.",
+    "keywords": ["iban", "bank number", "find iban"]
+  },
+  {
+    "question": "Can I use another student’s IBAN to pay?",
+    "answer": "No, each student has their own IBAN. If you use another student’s IBAN, the payment won’t appear in your account.",
+    "keywords": ["wrong iban", "another iban", "iban issue"]
+  },
+  {
+    "question": "What are the Finance Department working hours?",
+    "answer": "The Finance Department is open Sunday to Thursday, from 9:00 AM to 4:00 PM.",
+    "keywords": ["finance hours", "working hours"]
+  },
+  {
+    "question": "How can I contact the Finance Department?",
+    "answer": "Email: fin_support@ubt.edu.sa. Dahban Branch: 0122159030 / 0122159031. Corniche Branch: 0122156628.",
+    "keywords": ["finance contact", "finance email", "finance phone"]
+  },
+  {
+    "question": "How can I contact the Installment Department?",
+    "answer": "Head of Credit & Collection: 0501291670. Credit Officers: 0557723750 / 0562228810 / 0509033136.",
+    "keywords": ["installment contact", "installment department"]
+  },
+  {
+    "question": "What’s the difference between Semester Fees and Course Registration Fees?",
+    "answer": "Semester Fees are paid at the start of each semester to open your schedule. Course Registration Fees are the tuition fees for the subjects you register.",
+    "keywords": ["semester fees", "course registration", "difference"]
+  },
+  {
+    "question": "Do I have to pay before opening my schedule?",
+    "answer": "Yes. You must pay the Semester Fees first for your schedule to open in the Opera System.",
+    "keywords": ["schedule payment", "semester fees requirement"]
+  },
+  {
+    "question": "I paid more than once. How can I get a refund?",
+    "answer": "Visit or contact the Finance Department at either branch and provide your payment receipt so they can verify and refund the amount.",
+    "keywords": ["refund", "multiple payments"]
+  },
+  {
+    "question": "How much are tuition fees per semester?",
+    "answer": "Tuition fees vary depending on your college and number of credit hours. Check the finance section in your UBT Opera portal or contact the Finance Department.",
+    "keywords": ["tuition fees", "semester fees", "credit hours"]
+  },
+  {
+    "question": "How can I pay my tuition fees?",
+    "answer": "You can pay your tuition fees via bank transfer, SADAD using your SSN, or in person at the Finance Office.",
+    "keywords": ["pay tuition", "sadad", "bank transfer"]
+  },
+  {
+    "question": "Does UBT accept installments?",
+    "answer": "Yes, installment payments are allowed upon approval from the Finance Department. You must submit an installment request before the deadline.",
+    "keywords": ["installments", "payment plan"]
+  },
+  {
+    "question": "How can I get a financial statement?",
+    "answer": "You can download your financial statement directly from the UBT Opera portal or request it from the Finance Department.",
+    "keywords": ["financial statement", "student account"]
+  },
+  {
+    "question": "Who can I contact about a payment issue?",
+    "answer": "Finance Department - Corniche Campus. Email: finance@ubt.edu.sa. Phone: +966 12 215 9000.",
+    "keywords": ["payment issue", "finance contact"]
+  },
+  {
+    "question": "What happens if I miss the payment deadline?",
+    "answer": "Missing the payment deadline may result in registration being blocked or access to classes suspended. Contact the Finance Department immediately.",
+    "keywords": ["missed payment", "deadline issue"]
+  },
+  {
+    "question": "Are there any scholarships available?",
+    "answer": "Yes, UBT offers scholarship programs based on academic performance and financial need.",
+    "keywords": ["scholarships", "financial aid"]
+  },
+  {
+    "question": "How can I apply for a scholarship?",
+    "answer": "Apply through the UBT website or visit the Scholarship Office. Submit all required documents before the deadline.",
+    "keywords": ["scholarship application", "apply scholarship"]
+  },
+  {
+    "question": "What are the refund policies if I withdraw?",
+    "answer": "Refund percentage depends on how early you withdraw. Contact the Finance Department for exact deadlines.",
+    "keywords": ["refund policy", "withdrawal"]
+  },
+  {
+    "question": "What are the campus opening hours?",
+    "answer": "The Corniche campus usually opens at 8:00 AM.",
+    "keywords": ["campus hours", "opening hours"]
+  },
+  {
+    "question": "What time do classes usually start and end?",
+    "answer": "Class times vary depending on your schedule. Check your timetable in the Opera portal.",
+    "keywords": ["class times", "schedule"]
+  },
+  {
+    "question": "When are final exams?",
+    "answer": "Final exam dates are listed in the UBT academic calendar.",
+    "keywords": ["final exams", "exam dates"]
+  },
+  {
+    "question": "How can I know if classes are canceled?",
+    "answer": "Class cancellations are announced via Opera notifications, university email, or the UBT website.",
+    "keywords": ["classes canceled", "course cancellation"]
+  },
+  {
+    "question": "How can I request my transcript?",
+    "answer": "Log in to Opera → Student Services → Transcript Request. Choose type, submit, pay if required, and wait up to 5 business days.",
+    "keywords": ["transcript request", "get transcript"]
+  },
+  {
+    "question": "Is there a fee for transcripts?",
+    "answer": "Current students get transcripts for free. Graduates may need to pay a fee.",
+    "keywords": ["transcript fee", "graduate transcript"]
+  },
+  {
+    "question": "How long does it take to receive my transcript?",
+    "answer": "Transcripts are usually processed within 5 business days.",
+    "keywords": ["transcript time", "processing time"]
+  },
+  {
+    "question": "How can I get an enrollment letter?",
+    "answer": "Log in to Opera → Student Services → Request Enrollment Letter. You can download or collect it after processing.",
+    "keywords": ["enrollment letter", "proof of study"]
+  },
+  {
+    "question": "Who can I contact for issues with my transcript?",
+    "answer": "Registrar Office, Corniche Campus. Email: registrar@ubt.edu.sa. Phone: +966 12 215 9000.",
+    "keywords": ["transcript issue", "registrar"]
+  },
+  {
+    "question": "How can I get my graduation certificate?",
+    "answer": "Ensure all courses, grades, and clearance procedures are completed. The Registrar Office will notify you when it’s ready.",
+    "keywords": ["graduation certificate", "certificate"]
+  },
+  {
+    "question": "How can I reset my student portal password?",
+    "answer": "On the Opera login page, click 'Forgot Password' and follow the instructions. If you still cannot access your account, contact IT Support.",
+    "keywords": ["reset password", "forgot password"]
+  },
+  {
+    "question": "How can I access Blackboard?",
+    "answer": "Go to blackboard.ubt.edu.sa and sign in using your UBT email and password.",
+    "keywords": ["blackboard", "online courses"]
+  },
+  {
+    "question": "What do I do if my Blackboard isn’t working?",
+    "answer": "Try refreshing the page or using another browser. If the issue continues, contact IT Support with your student ID and a screenshot.",
+    "keywords": ["blackboard issue", "it support"]
+  },
+  {
+    "question": "Where can I find my grades online?",
+    "answer": "Log in to your Opera portal and open the Grades section to view midterm and overall grades.",
+    "keywords": ["grades", "check grades", "opera grades"]
+  }
+]

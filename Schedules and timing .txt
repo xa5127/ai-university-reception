@@ -1,0 +1,14 @@
+﻿Question,Answer,Keywords
+What are the campus opening hours?, The corniche campus usually opens at 8:00 AM.,"Keywords: campus hours, opening hours, campus timing, Corniche campus, UBT hours, 
+university opening"
+What time do classes usually start and end?,"Class times vary depending on your registered courses. Each student may have a different 
+schedule, so check your class timetable in the UBT Opera portal.","Keywords: class times, course timings, schedule, class schedule, Opera portal, registered 
+courses, timetable"
+When are final exams?,"Final exam dates are announced each semester and are included in theUBT academic 
+calendar.","Keywords: final exams, exam dates, semester exams, UBT calendar, exam schedule, test 
+dates"
+How can I know if classes are canceled?,"Class cancellations are usually announced via:
+ •UBT Opera portal notifications
+ •Official university email
+ •Announcements on the UBT website","Keywords: class canceled, canceled classes, course cancellation, notification, Opera portal, 
+email announcement, UBT website"

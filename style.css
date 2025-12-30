@@ -1,0 +1,2276 @@
+/* =======================================================
+   GLOBAL RESET
+======================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =======================================================
+   THEME VARIABLES (LIGHT + DARK)
+   A = clean UBT professional
+   1 = dark navy UBT style
+======================================================= */
+:root {
+  --bg: #f5f7fb;
+  --bg-elevated: #ffffff;
+  --header-bg: #ffffff;
+
+  --hero-bg: #002147;
+  --hero-text: #ffffff;
+
+  --text-main: #002147;
+  --text-body: #222222;
+  --text-muted: #5b647c;
+
+  --accent: #002147;
+  --accent-soft: #e3ebff;
+  --accent-strong: #003b7a;
+
+  --border-subtle: #dde3ee;
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+/* DARK MODE (navy UBT) */
+body.dark {
+  --bg: #050816;
+  --bg-elevated: #0c1020;
+  --header-bg: #050816;
+
+  --hero-bg: #0d1938;
+  --hero-text: #e5ecff;
+
+  --text-main: #ffffff;
+  --text-body: #e5ecff;
+  --text-muted: #9da8d8;
+
+  --accent: #4c8dff;
+  --accent-soft: #1c2744;
+  --accent-strong: #82aaff;
+
+  --border-subtle: #2a3355;
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.65);
+}
+
+/* =======================================================
+   BASE
+======================================================= */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-body);
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Generic text */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-main);
+}
+
+/* =======================================================
+   HEADER / NAVBAR
+======================================================= */
+header {
+  width: 100%;
+  background: var(--header-bg);
+  color: var(--text-main);
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.left-header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* NAV */
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+header nav a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  white-space: nowrap;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+/* RIGHT SIDE: toggle + logo */
+.right-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+header img.logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Theme toggle button */
+.theme-btn,
+#theme-toggle {
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-main);
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.theme-btn:hover,
+#theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+body.dark #theme-toggle {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-main);
+}
+
+/* =======================================================
+   MAIN CONTAINER
+======================================================= */
+main.content {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 28px 26px 30px;
+  background: var(--bg-elevated);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+  animation: fadeInUp 0.45s ease-out;
+}
+
+/* Paragraphs & lists */
+p {
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: var(--text-body);
+}
+
+ul {
+  margin: 0 0 16px 20px;
+}
+
+ul li {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+/* =======================================================
+   HERO SECTION (WELCOME BANNER)
+======================================================= */
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  padding: 48px 40px;
+  border-radius: 18px;
+  margin-bottom: 28px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  animation: fadeSlideUp 0.6s ease;
+}
+
+.hero h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--hero-text);
+}
+
+.hero p {
+  font-size: 16px;
+  opacity: 0.95;
+  color: var(--hero-text);
+}
+
+/* =======================================================
+   DASHBOARD CARDS (HOME)
+======================================================= */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin-top: 10px;
+}
+
+.dash-card {
+  background: var(--bg-elevated);
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  padding: 22px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dash-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.16);
+  border-color: var(--accent-soft);
+}
+
+.dash-card .icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.dash-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.dash-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Dark mode tweak for card text */
+body.dark .dash-card p {
+  color: var(--text-muted);
+}
+
+/* =======================================================
+   GENERIC BUTTON (used if needed)
+======================================================= */
+.big-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+.big-btn:hover {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+}
+
+/* =======================================================
+   MODAL SYSTEM
+======================================================= */
+#modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: none;
+  z-index: 900;
+}
+
+#modal-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 540px;
+  max-width: 90%;
+  background: var(--bg-elevated);
+  color: var(--text-body);
+  padding: 26px 26px 22px;
+  border-radius: 16px;
+  display: none;
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 1000;
+}
+
+#modal-box.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#modal-bg.show {
+  display: block;
+}
+
+#modal-close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+#modal-content h2 {
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+/* =======================================================
+   FLOATING CHAT WIDGET
+======================================================= */
+#chat-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 24px;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 900;
+}
+
+#chat-button:hover {
+  transform: scale(1.08);
+  background: var(--accent-strong);
+}
+
+#chat-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 320px;
+  height: 420px;
+  background: var(--bg-elevated);
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.55);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeInUp 0.3s ease;
+  z-index: 950;
+}
+
+#chat-widget.open {
+  display: flex;
+}
+
+/* Chat header */
+#chat-header {
+  background: var(--accent);
+  color: #ffffff;
+  padding: 10px 14px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chat-close {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Chat window */
+#chat-window {
+  flex: 1;
+  padding: 10px 10px 8px;
+  overflow-y: auto;
+  background: var(--bg-elevated);
+}
+
+/* Messages */
+.message {
+  max-width: 80%;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
+  animation: fadeInUp 0.25s ease-out;
+}
+
+.message.user {
+  margin-left: auto;
+  background: var(--accent);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+}
+
+.message.bot {
+  margin-right: auto;
+  background: var(--accent-soft);
+  color: var(--text-main);
+  border-bottom-left-radius: 4px;
+}
+
+/* Input row */
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+}
+
+.chat-input-row input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  font-size: 14px;
+  outline: none;
+  background: var(--bg);
+  color: var(--text-body);
+}
+
+.chat-input-row input:focus {
+  border-color: var(--accent);
+}
+
+.chat-input-row button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.chat-input-row button:hover {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+/* =======================================================
+   FOOTER
+======================================================= */
+footer {
+  text-align: center;
+  padding: 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* =======================================================
+   ANIMATIONS
+======================================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  header nav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  main.content {
+    margin: 20px 12px 26px;
+    padding: 22px 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 32px 22px;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  #chat-widget {
+    width: calc(100% - 24px);
+    right: 12px;
+  }
+}
+/* =======================================================
+   COOP PAGE CUSTOM STYLES
+======================================================= */
+
+/* Section wrapper */
+.coop-section {
+    margin-top: 40px;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--text-main);
+}
+
+/* -------------------------------------------------------
+   GRID LAYOUTS
+------------------------------------------------------- */
+.coop-grid {
+    display: grid;
+    gap: 22px;
+}
+
+.coop-grid.two-columns {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.coop-grid.three-columns {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* -------------------------------------------------------
+   CARDS
+------------------------------------------------------- */
+.coop-card {
+    background: var(--bg-elevated);
+    padding: 20px 22px;
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.coop-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 26px rgba(0,0,0,0.15);
+}
+
+.coop-card.soft {
+    background: var(--bg);
+}
+
+/* Titles inside cards */
+.coop-card h4 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Lists inside cards */
+.tight-list {
+    margin-left: 18px;
+}
+
+.tight-list li {
+    margin-bottom: 6px;
+    color: var(--text-body);
+}
+
+/* -------------------------------------------------------
+   HERO STYLING
+------------------------------------------------------- */
+.hero-coop {
+    background: var(--accent);
+    color: #fff;
+    padding: 35px 30px;
+    border-radius: 16px;
+}
+
+.hero-tags {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pill {
+    background: rgba(255,255,255,0.2);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+}
+
+/* -------------------------------------------------------
+   TRAINING PROCESS TIMELINE
+------------------------------------------------------- */
+.step-timeline {
+    display: grid;
+    gap: 24px;
+    margin-top: 10px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--bg-elevated);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+}
+
+.step-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* -------------------------------------------------------
+   EVALUATION TABLE
+------------------------------------------------------- */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: var(--bg-elevated);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.info-table th,
+.info-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: left;
+}
+
+.info-table th {
+    background: var(--accent-soft);
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.info-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* -------------------------------------------------------
+   RESPONSIVE
+------------------------------------------------------- */
+@media (max-width: 700px) {
+    .step {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .step-badge {
+        margin-bottom: 6px;
+    }
+}
+/* =======================================================
+   COURSE INFORMATION PAGE
+======================================================= */
+
+.course-page .hero-courses {
+  margin-bottom: 28px;
+}
+
+/* Course sections */
+.course-section {
+  background: var(--bg-elevated);
+  border-radius: 18px;
+  padding: 20px 22px 24px;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 22px;
+}
+
+.course-section .section-title {
+  margin-bottom: 14px;
+}
+
+/* Controls (search + filters) */
+.course-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+}
+
+.control-group label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.control-group input,
+.control-group select {
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text-body);
+  outline: none;
+}
+
+.control-group input:focus,
+.control-group select:focus {
+  border-color: var(--accent);
+}
+
+/* Table wrapper */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Course table */
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.course-table th,
+.course-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: left;
+}
+
+.course-table th {
+  background: var(--accent-soft);
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.course-table tr:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+body.dark .course-table tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* View button */
+.view-course-btn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.view-course-btn:hover {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+/* No results */
+.no-results {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* =======================================================
+   COURSE MODAL (A2)
+======================================================= */
+
+#course-modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+#course-modal {
+  width: 420px;
+  max-width: 92%;
+  background: var(--bg-elevated);
+  color: var(--text-body);
+  border-radius: 18px;
+  padding: 20px 22px 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+#course-modal h3 {
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+#course-modal p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+#course-modal hr {
+  margin: 10px 0 8px;
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Close button */
+#course-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+/* Show modal */
+#course-modal-bg.show {
+  display: flex;
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+  .course-controls {
+    flex-direction: column;
+  }
+}
+/* =======================================================
+ UPDATED COURSE INFORMATION STYLE (Cleaner + Modern)
+======================================================= */
+
+/* Course section container */
+.course-section {
+    background: var(--bg-elevated);
+    border-radius: 18px;
+    padding: 24px 26px 28px;
+    border: 1px solid var(--border-subtle);
+    margin-bottom: 26px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Controls layout */
+.course-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 200px;
+}
+
+.control-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.control-group input,
+.control-group select {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg);
+    font-size: 14px;
+    transition: border 0.2s ease;
+}
+
+.control-group input:focus,
+.control-group select:focus {
+    border-color: var(--accent);
+}
+
+/* Table wrapper */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 14px;
+}
+
+/* Course table */
+.course-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 15px;
+}
+
+/* Header */
+.course-table th {
+    background: var(--accent-soft);
+    padding: 14px 16px;
+    text-align: left;
+    color: var(--text-main);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Cells */
+.course-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Row hover */
+.course-table tr:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+body.dark .course-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* View button */
+.view-course-btn {
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.view-course-btn:hover {
+    background: var(--accent-strong);
+    transform: translateY(-2px);
+}
+
+/* Details card on the right (cleaner version) */
+.course-card {
+    background: var(--bg-elevated);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+    min-height: 200px;
+}
+
+.course-card-placeholder {
+    color: var(--text-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .course-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+/* COURSE DETAILS CARD FIX */
+.course-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 18px;
+  min-height: 140px;
+  transition: all 0.3s ease;
+}
+
+.course-card.open {
+  padding: 22px;
+}
+
+.course-card-placeholder {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+/* =========================
+   COURSE CARD POPUP STYLE
+   ========================= */
+
+.course-card {
+    position: fixed !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: var(--bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    z-index: 9999;
+
+    display: none; /* hidden until opened */
+}
+
+/* When JS adds .open → show popup */
+.course-card.open {
+    display: block;
+}
+
+/* Close button */
+.course-card::after {
+    content: "✕";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text);
+}
+/* =========================
+   CAMPUS NAVIGATION PAGE
+========================= */
+
+.nav-page .hero-nav {
+  margin-bottom: 26px;
+}
+
+.nav-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 22px;
+}
+
+.nav-map-area,
+.nav-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Map image container */
+.map-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  background: #000;
+}
+
+.campus-map {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Pins */
+.map-pin {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: var(--accent);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.map-pin.pin-access {
+  background: #24a148; /* green for accessibility */
+}
+
+.map-pin:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.map-pin.active {
+  background: var(--accent-strong);
+  box-shadow: 0 0 0 6px rgba(76, 141, 255, 0.6);
+}
+
+/* Legend */
+.map-legend {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.map-legend .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-right: 4px;
+}
+
+.dot-default {
+  background: var(--accent);
+}
+
+.dot-access {
+  background: #24a148;
+}
+
+/* Details card */
+.location-card {
+  background: var(--bg-elevated);
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  padding: 16px 18px;
+  min-height: 150px;
+  box-shadow: var(--shadow-soft);
+  font-size: 14px;
+}
+
+.location-card h3 {
+  margin-bottom: 4px;
+}
+
+.location-card p {
+  margin-bottom: 6px;
+}
+
+/* List */
+.location-list-title {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.location-list {
+  list-style: none;
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.location-list li {
+  padding: 6px 8px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.15s ease;
+}
+
+.location-list li span.tag {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--text-main);
+}
+
+.location-list li:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.location-list li.active {
+  background: rgba(76, 141, 255, 0.12);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-layout {
+    grid-template-columns: 1fr;
+  }
+}
+.campus-map-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.campus-map {
+    width: 100%;
+    max-width: 900px;
+    border: 2px solid var(--border-subtle);
+    border-radius: 8px;
+}
+/* =======================================================
+ COURSE EQUALIZATION WIZARD
+======================================================= */
+
+.eq-page .hero-eq {
+  margin-bottom: 26px;
+}
+
+/* Step indicator bar */
+.eq-steps-indicator {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.eq-step-indicator {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.eq-step-indicator span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  background: var(--accent-soft);
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.eq-step-indicator.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+/* Layout */
+.eq-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.eq-main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.eq-side {
+  background: var(--bg-elevated);
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  padding: 18px 18px 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Panels */
+.eq-step-panel.hidden {
+  display: none;
+}
+
+.eq-step-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+.eq-controls {
+  margin-top: 8px;
+}
+
+.eq-textarea-group textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text-body);
+  resize: vertical;
+}
+
+.eq-textarea-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Buttons */
+.eq-step-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.eq-btn-next,
+.eq-btn-primary,
+.eq-btn-secondary {
+  border-radius: 999px;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.eq-btn-next,
+.eq-btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.eq-btn-next:hover,
+.eq-btn-primary:hover {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+.eq-btn-secondary {
+  background: var(--bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+}
+
+.eq-btn-secondary:hover {
+  background: var(--accent-soft);
+}
+
+/* Decision card */
+.eq-decision-card {
+  margin-top: 10px;
+  padding: 16px 16px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-soft);
+}
+
+.eq-decision-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.eq-decision-card.status-yes .eq-decision-badge {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.eq-decision-card.status-no .eq-decision-badge {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.eq-decision-card.status-partial .eq-decision-badge {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.eq-decision-card.status-review .eq-decision-badge {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+/* Summary card */
+.eq-summary-card {
+  margin-top: 16px;
+  padding: 14px 16px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+}
+
+.eq-summary-list {
+  margin-top: 6px;
+  margin-left: 18px;
+  font-size: 14px;
+}
+
+.eq-summary-list li {
+  margin-bottom: 4px;
+}
+
+/* Small text */
+.eq-hint {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.eq-note {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Error message */
+.eq-error-message {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #b91c1c;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .eq-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .eq-step-actions {
+    justify-content: flex-start;
+  }
+}
+/* 🌙 DARK MODE FIXES */
+body.dark-mode,
+.dark-mode main,
+.dark-mode .content {
+    background-color: #1a1a1a !important;
+    color: #f5f5f5 !important;
+}
+
+/* Headings */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+    color: #ffffff !important;
+}
+
+/* Normal text */
+.dark-mode p,
+.dark-mode li,
+.dark-mode ul,
+.dark-mode span,
+.dark-mode label {
+    color: #e6e6e6 !important;
+}
+
+/* Input fields */
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+    background-color: #2a2a2a !important;
+    color: #fff !important;
+    border-color: #555 !important;
+}
+
+/* Cards */
+.dark-mode .professor-card,
+.dark-mode .review-card,
+.dark-mode .feature-card,
+.dark-mode .item-card {
+    background-color: #2a2a2a !important;
+    color: #fff !important;
+    border-color: #444 !important;
+}
+
+/* Ratings (stars stay gold but wrapper needs light text)*/
+.dark-mode .rating,
+.dark-mode .rating-stars {
+    color: #f1c40f !important;
+}
+
+/* Review comment box */
+.dark-mode .review-comment {
+    background: #333 !important;
+    color: #fff !important;
+}
+
+/* Buttons */
+.dark-mode button,
+.dark-mode .submit-btn {
+    background-color: #444 !important;
+    color: #fff !important;
+    border-color: #666 !important;
+}
+
+.dark-mode button:hover,
+.dark-mode .submit-btn:hover {
+    background-color: #555 !important;
+}
+
+/* Navigation bar */
+.dark-mode nav a {
+    color: #f0f0f0 !important;
+}
+
+.dark-mode nav a:hover {
+    background-color: #444 !important;
+}
+
+/* Header */
+.dark-mode header {
+    background-color: #111 !important;
+}
+
+/* Footer */
+.dark-mode footer {
+    background-color: #111 !important;
+    color: #ddd !important;
+}
+/* ============================
+   FIX FACULTY REVIEW FORM TEXT
+   (Dark mode compatibility)
+   ============================ */
+body.dark-mode .faculty-review-box,
+body.dark-mode .faculty-detail,
+body.dark-mode .review-form {
+    background: #f5f5f5 !important;  /* light background */
+    color: #000 !important;          /* dark text */
+}
+
+/* Inputs and selects */
+body.dark-mode .review-form input,
+body.dark-mode .review-form select,
+body.dark-mode .review-form textarea {
+    background: #ffffff !important;
+    color: #000 !important;
+    border: 1px solid #ccc !important;
+}
+
+/* Placeholder text */
+body.dark-mode .review-form input::placeholder,
+body.dark-mode .review-form textarea::placeholder {
+    color: #555 !important;
+}
+
+/* Instructor list boxes */
+body.dark-mode .faculty-card {
+    background: #eaeaea !important;
+    color: #000 !important;
+}
+
+/* Star rating colors */
+body.dark-mode .star {
+    color: #f5b301 !important;
+}
+/* 🌙 DARK MODE FIXES FOR FACULTY DIRECTORY */
+body.dark-mode {
+    background-color: #0d1117;
+    color: #e6e6e6;
+}
+
+body.dark-mode main.content,
+body.dark-mode .faculty-list-container,
+body.dark-mode .faculty-card,
+body.dark-mode .faculty-details,
+body.dark-mode .review-form,
+body.dark-mode .review-item {
+    background-color: #111827 !important;
+    color: #e6e6e6 !important;
+    border-color: #2d3748 !important;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #1f2937 !important;
+    color: #f1f5f9 !important;
+    border: 1px solid #374151 !important;
+}
+
+body.dark-mode .faculty-card h3,
+body.dark-mode .faculty-details h3,
+body.dark-mode label {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .faculty-card:hover {
+    background-color: #1f2937 !important;
+}
+
+body.dark-mode .star {
+    color: gold !important;
+}
+
+body.dark-mode small {
+    color: #cbd5e1 !important;
+}
+/* ------------------------------
+   DARK MODE — FACULTY DIRECTORY FIX
+   Make faculty names & review form text readable
+--------------------------------*/
+body.dark-mode .faculty-item h3,
+body.dark-mode #faculty-details h2,
+body.dark-mode #faculty-details h3 {
+    color: #070707 !important; /* Light gray */
+}
+
+/* Review form labels */
+body.dark-mode #review-form label {
+    color: #e6e6e6 !important;
+}
+
+/* Inputs, selects, textarea in dark mode */
+body.dark-mode #review-form input,
+body.dark-mode #review-form select,
+body.dark-mode #review-form textarea {
+    background-color: #2d2d2d !important;
+    color: #ffffff !important;
+    border-color: #555 !important;
+}
+
+body.dark-mode #review-form input::placeholder,
+body.dark-mode #review-form textarea::placeholder {
+    color: #bfbfbf !important;
+}
+
+/* ===============================
+   DARK MODE TEXT VISIBILITY FIX
+   =============================== */
+body.dark {
+    --text-main: #FFFFFF;          /* main text */
+    --text-sub: #D7D7D7;           /* secondary text */
+    --card-bg: #11131A;            /* faculty card bg */
+    --card-border: #2A2E39;
+    --input-bg: #1A1D25;
+    --input-text: #fff;
+}
+
+/* Faculty name in list (blue highlight in dark mode) */
+body.dark .faculty-card h4 {
+    color: #E8F1FF !important;
+}
+
+/* Review form labels */
+body.dark .review-box label {
+    color: #ffffff !important;
+}
+
+/* Review form inputs */
+body.dark .review-box input,
+body.dark .review-box textarea,
+body.dark .review-box select {
+    background: var(--input-bg) !important;
+    color: var(--input-text) !important;
+    border-color: #3A3F4D !important;
+}
+/* =========================================================
+   FACULTY DIRECTORY — ENHANCED DESIGN (LIGHT + DARK MODE)
+   Cleaner cards, smoother shadows, improved spacing & colors
+========================================================= */
+
+/* ---------- Layout ---------- */
+.faculty-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 2.2rem;
+    align-items: flex-start;
+}
+
+/* ---------- Filters ---------- */
+.faculty-filters {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.faculty-filters input,
+.faculty-filters select {
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #cfd6df;
+    background: #ffffff;
+    font-size: 0.95rem;
+    transition: 0.2s ease;
+}
+
+.faculty-filters input:focus,
+.faculty-filters select:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 0 3px rgba(0,119,204,0.15);
+}
+
+/* ---------- Faculty List Cards ---------- */
+.faculty-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 530px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.faculty-card {
+    padding: 1rem 1.1rem;
+    border-radius: 12px;
+    border: 1px solid #e4e7ec;
+    background: #ffffff;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.faculty-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.faculty-card.active {
+    background: #e9f5ff;
+    border-color: #0077cc;
+    box-shadow: 0 0 0 2px rgba(0,119,204,0.25);
+}
+
+.faculty-card-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #1c1f24;
+}
+
+.faculty-card-meta {
+    font-size: 0.88rem;
+    color: #606c7a;
+    margin-bottom: 0.1rem;
+}
+
+.faculty-card-rating {
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+}
+
+.rating-stars {
+    color: #f5b300;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.rating-empty {
+    color: #b0b0b0;
+}
+
+/* ---------- Faculty Details Panel ---------- */
+.faculty-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 0.6rem;
+}
+
+.faculty-name-main {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1c20;
+}
+
+.faculty-dept-main {
+    color: #66707b;
+    font-size: 1rem;
+}
+
+.faculty-rating-main {
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.faculty-rating-main .rating-stars {
+    font-size: 1.2rem;
+}
+
+.faculty-contact {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+}
+
+.faculty-contact .label {
+    font-weight: 600;
+}
+
+/* ---------- Review Form ---------- */
+.review-form {
+    margin-top: 1.2rem;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    border: 1px solid #e2e2e2;
+    background: #fafafa;
+}
+
+.review-form h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.review-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 0.8rem;
+}
+
+.review-form label {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.review-form select,
+.review-form input[type="text"],
+.review-form textarea {
+    width: 100%;
+    max-width: 320px;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #c9cfd8;
+    font-size: 0.95rem;
+    transition: 0.2s ease;
+}
+
+.review-form select:focus,
+.review-form input:focus,
+.review-form textarea:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 0 3px rgba(0,119,204,0.15);
+}
+
+.review-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.btn-primary {
+    margin-top: 0.6rem;
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    border: none;
+    background: #0077cc;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+    background: #005fa5;
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* ---------- Reviews Section ---------- */
+.reviews-section {
+    margin-top: 1.5rem;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.review-item {
+    border-radius: 12px;
+    border: 1px solid #e6e6e6;
+    padding: 0.9rem 1rem;
+    background: #ffffff;
+}
+
+.review-item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+}
+
+.review-item-rating {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.review-item-date {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.review-item-comment {
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.no-reviews-msg {
+    font-size: 0.9rem;
+    color: #777;
+    font-style: italic;
+}
+
+/* ---------- DARK MODE FIXES ---------- */
+body.dark-mode .faculty-card {
+    background: #1e2330;
+    border-color: #2e3546;
+}
+
+body.dark-mode .faculty-card-title {
+    color: #ffffff;
+}
+
+body.dark-mode .faculty-card-meta {
+    color: #c7d1e0;
+}
+
+body.dark-mode .faculty-name-main {
+    color: #ffffff;
+}
+
+body.dark-mode .faculty-dept-main {
+    color: #c3cce0;
+}
+
+body.dark-mode #faculty-contact {
+    color: #dbe2ef;
+}
+
+body.dark-mode .review-form {
+    background: #2a2f3f;
+    border-color: #3b4254;
+}
+
+body.dark-mode .review-form label {
+    color: #e5e9f0;
+}
+
+body.dark-mode .review-form select,
+body.dark-mode .review-form input,
+body.dark-mode .review-form textarea {
+    background: #1f2430;
+    border-color: #4b5468;
+    color: #f5f7fa;
+}
+
+body.dark-mode .reviews-section h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .review-item {
+    background: #1f2430;
+    border-color: #3b4254;
+    color: #e6e9f2;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .faculty-layout {
+        grid-template-columns: 1fr;
+    }
+    .faculty-rating-main {
+        text-align: left;
+    }
+}
+/* ============================================================
+   GLOBAL VISUAL ENHANCEMENTS FOR FACULTY DIRECTORY PAGE
+   Cleaner cards • Better spacing • Modern shadows • Improved contrast
+   ============================================================ */
+
+/* Smooth transitions across the whole page */
+* {
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Layout improvements */
+.faculty-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+    margin-top: 1rem;
+}
+
+/* -------------------------------------
+   Filters Styling
+-------------------------------------- */
+.faculty-filters input,
+.faculty-filters select {
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid #c9c9c9;
+    font-size: 0.92rem;
+    background: #ffffff;
+}
+
+body.dark .faculty-filters input,
+body.dark .faculty-filters select {
+    background: #1a1c24;
+    border-color: #333;
+    color: #fff;
+}
+
+/* -------------------------------------
+   Faculty Card Styles
+-------------------------------------- */
+.faculty-card {
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    background: rgba(255,255,255,0.92);
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faculty-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.faculty-card.active {
+    border-color: #0077ff;
+    box-shadow: 0 0 0 2px rgba(0,119,255,0.25);
+    background: #eef7ff;
+}
+
+body.dark .faculty-card {
+    background: rgba(25,25,35,0.85);
+    border-color: #2d2f3b;
+}
+
+body.dark .faculty-card.active {
+    background: rgba(45,60,90,0.6);
+}
+
+/* Faculty Name */
+.faculty-card-title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+body.dark .faculty-card-title {
+    color: #ffffff !important;
+}
+
+/* Subtext */
+.faculty-card-meta {
+    font-size: 0.82rem;
+    color: #666;
+}
+
+body.dark .faculty-card-meta {
+    color: #ccc;
+}
+
+/* Stars */
+.rating-stars {
+    color: #ffb800;
+    font-size: 0.95rem;
+}
+
+/* -------------------------------------
+   Faculty Details Panel
+-------------------------------------- */
+#faculty-details-panel {
+    background: rgba(255,255,255,0.95);
+    border-radius: 14px;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    backdrop-filter: blur(4px);
+}
+
+body.dark #faculty-details-panel {
+    background: rgba(22,23,32,0.85);
+    border-color: #303240;
+    color: #fff;
+}
+
+.faculty-name-main {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+body.dark .faculty-name-main {
+    color: #ffffff;
+}
+
+.faculty-dept-main {
+    color: #777;
+}
+
+body.dark .faculty-dept-main {
+    color: #d0d0d0;
+}
+
+.faculty-rating-main {
+    text-align: right;
+}
+
+/* -------------------------------------
+   Review Form Styling
+-------------------------------------- */
+.review-form {
+    margin-top: 1.2rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+}
+
+body.dark .review-form {
+    background: rgba(30,32,40,0.7);
+    border-color: #3a3d4a;
+}
+
+.review-form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+body.dark .review-form label {
+    color: #fff;
+}
+
+.review-form select,
+.review-form input[type="text"],
+.review-form textarea {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.review-form textarea {
+    min-height: 90px;
+}
+
+/* DARK MODE Inputs */
+body.dark .review-form select,
+body.dark .review-form input[type="text"],
+body.dark .review-form textarea {
+    background: #1c1e26;
+    border-color: #444;
+    color: #fff;
+}
+
+body.dark .review-form textarea::placeholder {
+    color: #999;
+}
+
+/* Submit Button */
+.btn-primary {
+    margin-top: 0.5rem;
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+    background: #0068d6;
+    transform: translateY(-2px);
+}
+
+/* -------------------------------------
+   Reviews List
+-------------------------------------- */
+.review-item {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 0.8rem;
+    border: 1px solid #eee;
+}
+
+body.dark .review-item {
+    background: #262836;
+    border-color: #3b3d4c;
+}
+
+.review-item-rating {
+    font-size: 0.85rem;
+}
+
+.review-item-comment {
+    margin-top: 0.4rem;
+    line-height: 1.4;
+}

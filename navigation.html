@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Campus Navigation | AI Reception</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- ⭐ GLOBAL HEADER ⭐ -->
+<header>
+<div class="left-header">
+<h1>AI University Reception</h1>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="lostfound.html">Lost & Found</a>
+<a href="coop.html">COOP</a>
+<a href="faculty.html">Faculty Directory</a>
+<a href="courseinfo.html">Course Information</a>
+<a href="courseequalization.html">Course Equalization</a>
+<a href="navigation.html" class="active">Campus Navigation</a>
+</nav>
+
+<div class="right-header">
+<button id="theme-toggle" class="theme-btn">🌙</button>
+<img src="images/logo.png" class="logo" alt="UBT Logo">
+</div>
+</header>
+
+
+<!-- ⭐ MAIN CONTENT ⭐ -->
+<main class="content nav-page">
+
+<!-- HERO -->
+<section class="hero hero-nav">
+<h2>Campus Navigation</h2>
+<p>
+ Use the interactive CE Ground Floor map to quickly find labs, the auditorium,
+ conference rooms, and accessible facilities (ramps and handicap toilets).
+</p>
+<div class="pill-row">
+<span class="pill">Click a pin on the map</span>
+<span class="pill">Or select a place from the list</span>
+<span class="pill">See step‑by‑step directions</span>
+</div>
+</section>
+
+<!-- QUICK FIND -->
+<section class="course-section">
+<h3 class="section-title">Quick Find</h3>
+<div class="course-controls">
+
+<div class="control-group">
+<label for="location-search">Search place</label>
+<input
+type="text"
+id="location-search"
+placeholder="Type: auditorium, software lab, ramp…">
+</div>
+
+<div class="control-group">
+<label for="location-filter">Category</label>
+<select id="location-filter">
+<option value="">All</option>
+<option value="lab">Labs</option>
+<option value="teaching">Teaching &amp; halls</option>
+<option value="service">Services</option>
+<option value="access">Accessible (ramps &amp; toilets)</option>
+</select>
+</div>
+
+</div>
+</section>
+
+<!-- MAP + DETAILS LAYOUT -->
+<section class="course-section nav-layout">
+
+<!-- MAP AREA -->
+<div class="nav-map-area">
+<h3 class="section-title">CE Ground Floor Map</h3>
+
+<div class="map-container">
+
+<img
+src="images/ce-ground-floor.png"
+alt="CE Ground Floor Plan"
+class="campus-map">
+
+<!-- PINS (adjust if needed) -->
+<button class="map-pin" data-location="auditorium" style="top: 70%; left: 82%;"></button>
+<button class="map-pin" data-location="main-entrance" style="top: 86%; left: 50%;"></button>
+<button class="map-pin" data-location="software-labs" style="top: 62%; left: 20%;"></button>
+<button class="map-pin" data-location="mech-lab" style="top: 13%; left: 18%;"></button>
+<button class="map-pin" data-location="physics-labs" style="top: 18%; left: 50%;"></button>
+<button class="map-pin" data-location="chem-lab" style="top: 18%; left: 63%;"></button>
+<button class="map-pin" data-location="conference-rooms" style="top: 55%; left: 50%;"></button>
+
+<!-- Accessible (ramps & toilets) -->
+<button class="map-pin pin-access" data-location="ramp-left" style="top: 88%; left: 33%;"></button>
+<button class="map-pin pin-access" data-location="ramp-right" style="top: 88%; left: 67%;"></button>
+<button class="map-pin pin-access" data-location="wc-left" style="top: 33%; left: 10%;"></button>
+<button class="map-pin pin-access" data-location="wc-right" style="top: 33%; left: 90%;"></button>
+
+</div>
+
+<p class="map-legend">
+<span class="dot dot-default"></span> Main locations
+<span class="dot dot-access"></span> Accessible (ramp / handicap toilet)
+</p>
+
+</div>
+
+<!-- DETAILS SIDEBAR -->
+<aside class="nav-details">
+<h3 class="section-title">Location Details</h3>
+
+<div id="location-details" class="location-card">
+<p class="course-card-placeholder">
+ Click a pin on the map or choose a place from the list to view details and directions.
+</p>
+</div>
+
+<h4 class="location-list-title">Places on this floor</h4>
+<ul id="location-list" class="location-list"></ul>
+
+</aside>
+</section>
+
+</main>
+
+<footer>
+<small>AI University Reception — Developed for UBT</small>
+</footer>
+
+<!-- Chat Widget -->
+<div id="chat-widget">
+<div id="chat-header">
+ AI Assistant
+<span id="chat-close">×</span>
+</div>
+<div id="chat-window"></div>
+<div class="chat-input-row">
+<input type="text" id="chat-input" placeholder="Type your message...">
+<button id="chat-send">Send</button>
+</div>
+</div>
+
+<div id="chat-button">💬</div>
+
+<script src="app.js"></script>
+<script src="chatwidget.js"></script>
+<script src="navigation.js"></script>
+
+</body>
+</html>

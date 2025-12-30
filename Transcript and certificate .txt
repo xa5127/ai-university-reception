@@ -1,0 +1,42 @@
+﻿Question,Answer,Keywords,,
+How can I request my transcript?," How to Request a Transcript at UBT — Steps
+ 1.Log in to the UBT Student Portal / OPERA system
+ •Use your student ID and password.
+ 2.Go to Student Services
+ •Look for Records / Registrar / Transcript Request section.
+ 3.Fill out the Transcript Request Form
+ •Choose the type of transcript (official or unofficial)
+ •Select delivery method (digital or printed copy)
+ 4.Confirm your request
+ •Review details and submit the request.
+ 5.Pay any required fee
+ •Payment is needed only for graduates or for extra copies.
+ 6.Wait for processing
+ •UBT processes transcripts within 5 business days.
+ 7.Receive your transcript
+ •Download it from the portal or
+ •Pick it up from the Registrar’s Office if you selected printed copy
+ Helpful Notes
+ •Make sure your fees and holds are cleared, otherwise the request won’t process.
+ •If you face issues, contact the Registrar / Admission & Registration Office."," Keywords: transcript request, UBT Opera, student portal, login, student services, registrar, 
+digital copy, printed copy, 5 business days, processing, records office.",,
+ Is there a fee for transcripts?," •The transcript is issued without any additional fee for current students.
+ •For graduates (students who have completed their studies), a fee does apply, though the 
+amount isn’t specified"," Keywords: transcript fee, free for students, graduates fee, extra copies, payment required.",,
+How long does it take to receive my transcript?, within 5 days from the date of application for current students.," Keywords: transcript processing time, 5 days, application date, delivery time.",,
+ How can I get an enrollment letter or proof of study?,"You can request your enrollment letter (proof of study) through the UBT Opera system:
+ 1. Log in to UBT Opera using your University SSN and password.
+ 2. Go to the ""Student Services"" section.
+ 3. Select ""Request Enrollment Letter.""
+ 4. Fill in the required details and submit your request.
+ Once it's processed, you can download it directly or collect it from the Registrar's Office","Keywords: enrollment letter, proof of study, UBT Opera, student services, request form, 
+registrar office, download, collect",,
+Who can I contact for issues with my transcript?," If you have any issues with your transcript, you can contact the Registrar's Office at UBT.
+ Location: Registrar's Office, Corniche Campus
+Email: registrar@ubt.edu.sa
+ Phone: +966 12 215 9000"," Keywords: transcript help, registrar office, Corniche campus, email registrar@ubt.edu.sa, 
+phone +966122159000, contact support.",,
+ How can I get my graduation certificate?,"1. Make sure all your courses, grades, and clearance procedures are completed.
+ 2. Once cleared, the Registrar's Office will notify you when your certificate is ready.
+ 3. You can then collect it in person or authorize someone to collect it on your behalf","Keywords: graduation certificate, clearance, registrar office, notification, collect in person, 
+authorized pickup, completion confirmation",,

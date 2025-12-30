@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Faculty Directory | AI Reception</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Page-specific styles (kept small) -->
+  <style>
+    .faculty-layout {
+      display: grid;
+      grid-template-columns: 1.3fr 1.7fr;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .faculty-filters {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .faculty-filters input,
+    .faculty-filters select {
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+    }
+
+    .faculty-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-height: 500px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .faculty-card {
+      padding: 0.75rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: rgba(255,255,255,0.85);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s;
+    }
+
+    .faculty-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .faculty-card.active {
+      border-color: #0077cc;
+      box-shadow: 0 0 0 1px rgba(0,119,204,0.2);
+      background: #f5fbff;
+    }
+
+    .faculty-card-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .faculty-card-meta {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .faculty-card-rating {
+      margin-top: 0.25rem;
+      font-size: 0.85rem;
+    }
+
+    .rating-stars {
+      color: #f5a623;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .rating-empty {
+      color: #ccc;
+    }
+
+    .faculty-details-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .faculty-name-main {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .faculty-dept-main {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .faculty-rating-main {
+      text-align: right;
+      font-size: 0.9rem;
+    }
+
+    .faculty-rating-main .rating-stars {
+      font-size: 1rem;
+    }
+
+    .faculty-contact {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .faculty-contact span.label {
+      font-weight: 600;
+    }
+
+    .review-form {
+      margin-top: 1rem;
+      padding: 0.9rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: rgba(250,250,250,0.9);
+    }
+
+    .review-form h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .review-form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      align-items: center;
+    }
+
+    .review-form-row label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .review-form select,
+    .review-form textarea,
+    .review-form input[type="text"] {
+      width: 100%;
+      max-width: 260px;
+      padding: 0.4rem 0.55rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+    }
+
+    .review-form textarea {
+      resize: vertical;
+      min-height: 70px;
+      max-width: 100%;
+    }
+
+    .btn-primary {
+      margin-top: 0.3rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: none;
+      background: #0077cc;
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      background: #005fa5;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .reviews-section {
+      margin-top: 1rem;
+    }
+
+    .reviews-section h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      max-height: 260px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .review-item {
+      border-radius: 8px;
+      border: 1px solid #eee;
+      padding: 0.6rem 0.7rem;
+      background: #fff;
+      font-size: 0.9rem;
+    }
+
+    .review-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .review-item-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+    }
+
+    .review-item-date {
+      font-size: 0.75rem;
+      color: #777;
+    }
+
+    .review-item-comment {
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .no-reviews-msg {
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    @media (max-width: 800px) {
+      .faculty-layout {
+        grid-template-columns: 1fr;
+      }
+      .faculty-rating-main {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ⭐ UNIFIED HEADER ⭐ -->
+<header>
+  <h1>AI University Reception</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="lostfound.html">Lost & Found</a>
+    <a href="coop.html">COOP</a>
+    <a href="faculty.html">Faculty Directory</a>
+    <a href="courseinfo.html">Course Information</a>
+    <a href="courseequalization.html">Course Equalization</a>
+    <a href="navigation.html">Campus Navigation</a>
+  </nav>
+
+  <div class="right-header">
+    <button id="theme-toggle">🌙</button>
+    <img src="images/logo.png" class="logo" alt="Logo">
+  </div>
+</header>
+
+<!-- ⭐ MAIN CONTENT ⭐ -->
+<main class="content">
+  <h2>Faculty Directory</h2>
+
+  <p>
+    Browse UBT faculty, view each instructor’s average rating and read student feedback.
+    You can also submit your own review for any instructor directly from this page.
+  </p>
+
+  <!-- Filters + Layout -->
+  <div class="faculty-layout">
+
+    <!-- LEFT: FACULTY LIST + FILTERS -->
+    <section>
+      <div class="faculty-filters">
+        <input type="text" id="faculty-search" placeholder="Search by name…">
+        <select id="faculty-dept-filter">
+          <option value="">All departments</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Information Systems">Information Systems</option>
+          <option value="Business Administration">Business Administration</option>
+          <option value="Law">Law</option>
+          <!-- add more if needed -->
+        </select>
+      </div>
+
+      <div id="faculty-list" class="faculty-list">
+        <!-- faculty cards rendered by JS -->
+      </div>
+    </section>
+
+    <!-- RIGHT: DETAILS + REVIEWS -->
+    <section id="faculty-details-panel" style="display:none;">
+      <div class="faculty-details-header">
+        <div>
+          <div id="faculty-name-main" class="faculty-name-main"></div>
+          <div id="faculty-dept-main" class="faculty-dept-main"></div>
+        </div>
+        <div class="faculty-rating-main">
+          <div>Average rating</div>
+          <div id="faculty-rating-main-stars" class="rating-stars">★★★★★</div>
+          <div id="faculty-rating-main-text" style="font-size:0.8rem;"></div>
+        </div>
+      </div>
+
+      <div id="faculty-contact" class="faculty-contact"></div>
+
+      <!-- Add review form -->
+      <form id="review-form" class="review-form">
+        <h3>Submit your review</h3>
+        <p style="font-size:0.85rem; margin-bottom:0.4rem;">
+          Reviewing: <strong id="reviewing-name">–</strong>
+        </p>
+
+        <div class="review-form-row">
+          <label for="review-rating">Rating (1–5):</label>
+          <select id="review-rating" required>
+            <option value="">Select rating</option>
+            <option value="5">5 – Excellent</option>
+            <option value="4">4 – Very good</option>
+            <option value="3">3 – Good</option>
+            <option value="2">2 – Fair</option>
+            <option value="1">1 – Poor</option>
+          </select>
+        </div>
+
+        <div class="review-form-row">
+          <label for="review-course">Course (optional):</label>
+          <input type="text" id="review-course" placeholder="e.g. Web Programming 1">
+        </div>
+
+        <div class="review-form-row" style="flex-direction:column; align-items:flex-start;">
+          <label for="review-comment">Comment:</label>
+          <textarea id="review-comment" placeholder="Share your experience with this instructor…" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">Submit Review</button>
+      </form>
+
+      <!-- Reviews list -->
+      <div class="reviews-section">
+        <h3>Student reviews</h3>
+        <div id="reviews-list" class="reviews-list">
+          <!-- reviews rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <small>AI University Reception — Developed for UBT</small>
+</footer>
+
+<!-- ⭐ FLOATING CHAT WIDGET ⭐ -->
+<div id="chat-widget">
+  <div id="chat-header">
+    AI Assistant
+    <span id="chat-close">×</span>
+  </div>
+
+  <div id="chat-window"></div>
+
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="Type your message...">
+    <button id="chat-send">Send</button>
+  </div>
+</div>
+
+<!-- Chat Button -->
+<div id="chat-button">💬</div>
+
+<!-- Scripts (existing) -->
+<script src="app.js"></script>
+<script src="chatwidget.js"></script>
+
+<!-- ⭐ FACULTY PAGE LOGIC ⭐ -->
+<script>
+  // Simple in-page data instead of MockAPI
+  const facultyData = [
+    {
+      id: "prof1",
+      name: "Dr. Sara Al-Farsi",
+      dept: "Computer Science",
+      email: "sara.alfarsi@ubt.edu.sa",
+      office: "Building A, Room 210",
+      phone: "+966 12 123 4567"
+    },
+    {
+      id: "prof2",
+      name: "Dr. Ahmed Al-Mutairi",
+      dept: "Information Systems",
+      email: "ahmed.mutairi@ubt.edu.sa",
+      office: "Building B, Room 305",
+      phone: "+966 12 987 6543"
+    },
+    {
+      id: "prof3",
+      name: "Dr. Lina Al-Harbi",
+      dept: "Business Administration",
+      email: "lina.harbi@ubt.edu.sa",
+      office: "Business College, Room 120",
+      phone: "+966 12 555 2222"
+    },
+    {
+      id: "prof4",
+      name: "Dr. Omar Al-Qahtani",
+      dept: "Law",
+      email: "omar.qahtani@ubt.edu.sa",
+      office: "Law Building, Room 18",
+      phone: "+966 12 333 9090"
+    }
+  ];
+
+  const REVIEWS_STORAGE_KEY = "facultyReviews_v1";
+
+  let selectedProfessorId = null;
+
+  function loadAllReviews() {
+    try {
+      return JSON.parse(localStorage.getItem(REVIEWS_STORAGE_KEY) || "[]");
+    } catch (e) {
+      console.error("Error reading reviews:", e);
+      return [];
+    }
+  }
+
+  function saveAllReviews(reviews) {
+    localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(reviews));
+  }
+
+  function getReviewsForProfessor(id) {
+    return loadAllReviews().filter(r => r.professorId === id);
+  }
+
+  function calcAverageRating(id) {
+    const reviews = getReviewsForProfessor(id);
+    if (!reviews.length) return null;
+    const sum = reviews.reduce((s, r) => s + r.rating, 0);
+    return sum / reviews.length;
+  }
+
+  function buildStars(rating) {
+    const full = rating || 0;
+    let stars = "";
+    for (let i = 1; i <= 5; i++) {
+      stars += i <= full ? "★" : "☆";
+    }
+    return stars;
+  }
+
+  function renderFacultyList() {
+    const container = document.getElementById("faculty-list");
+    const searchValue = document.getElementById("faculty-search").value.trim().toLowerCase();
+    const deptFilter = document.getElementById("faculty-dept-filter").value;
+
+    const filtered = facultyData.filter(f => {
+      const matchesName = !searchValue ||
+        f.name.toLowerCase().includes(searchValue);
+      const matchesDept = !deptFilter || f.dept === deptFilter;
+      return matchesName && matchesDept;
+    });
+
+    if (!filtered.length) {
+      container.innerHTML = "<p>No faculty match your filters.</p>";
+      return;
+    }
+
+    container.innerHTML = "";
+    filtered.forEach(f => {
+      const avg = calcAverageRating(f.id);
+      const card = document.createElement("div");
+      card.className = "faculty-card" + (f.id === selectedProfessorId ? " active" : "");
+      card.dataset.id = f.id;
+
+      card.innerHTML = `
+        <div class="faculty-card-title">${f.name}</div>
+        <div class="faculty-card-meta">${f.dept}</div>
+        <div class="faculty-card-meta">
+          <small>${f.email}</small>
+        </div>
+        <div class="faculty-card-rating">
+          <span class="rating-stars">${buildStars(avg ? Math.round(avg) : 0)}</span>
+          <span class="${avg ? "" : "rating-empty"}">
+            ${avg ? avg.toFixed(1) + " / 5" : "No ratings yet"}
+          </span>
+        </div>
+      `;
+
+      card.addEventListener("click", () => {
+        selectProfessor(f.id);
+      });
+
+      container.appendChild(card);
+    });
+  }
+
+  function selectProfessor(id) {
+    selectedProfessorId = id;
+    const prof = facultyData.find(f => f.id === id);
+    const panel = document.getElementById("faculty-details-panel");
+    if (!prof) {
+      panel.style.display = "none";
+      return;
+    }
+    panel.style.display = "block";
+
+    // Update header + contact
+    document.getElementById("faculty-name-main").textContent = prof.name;
+    document.getElementById("faculty-dept-main").textContent = prof.dept;
+    document.getElementById("reviewing-name").textContent = prof.name;
+
+    const contactHtml = `
+      <div><span class="label">Email:</span> <a href="mailto:${prof.email}">${prof.email}</a></div>
+      <div><span class="label">Office:</span> ${prof.office}</div>
+      <div><span class="label">Phone:</span> ${prof.phone}</div>
+    `;
+    document.getElementById("faculty-contact").innerHTML = contactHtml;
+
+    // Update header rating
+    const avg = calcAverageRating(prof.id);
+    const starsEl = document.getElementById("faculty-rating-main-stars");
+    const textEl = document.getElementById("faculty-rating-main-text");
+
+    if (avg == null) {
+      starsEl.textContent = "☆☆☆☆☆";
+      textEl.textContent = "No reviews yet";
+    } else {
+      starsEl.textContent = buildStars(Math.round(avg));
+      const count = getReviewsForProfessor(prof.id).length;
+      textEl.textContent = `${avg.toFixed(1)} / 5 from ${count} review${count > 1 ? "s" : ""}`;
+    }
+
+    // Update active card in list
+    document.querySelectorAll(".faculty-card").forEach(card => {
+      if (card.dataset.id === id) {
+        card.classList.add("active");
+      } else {
+        card.classList.remove("active");
+      }
+    });
+
+    renderReviewsList();
+  }
+
+  function renderReviewsList() {
+    const container = document.getElementById("reviews-list");
+    if (!selectedProfessorId) {
+      container.innerHTML = "";
+      return;
+    }
+
+    const reviews = getReviewsForProfessor(selectedProfessorId)
+      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+    if (!reviews.length) {
+      container.innerHTML = `<p class="no-reviews-msg">No reviews yet. Be the first to share your experience!</p>`;
+      return;
+    }
+
+    container.innerHTML = "";
+    reviews.forEach(r => {
+      const item = document.createElement("div");
+      item.className = "review-item";
+      const date = new Date(r.createdAt);
+
+      item.innerHTML = `
+        <div class="review-item-header">
+          <div class="review-item-rating">
+            <span class="rating-stars">${buildStars(r.rating)}</span>
+            <span>${r.rating.toFixed(1)} / 5</span>
+            ${r.course ? `<span style="font-size:0.8rem; opacity:0.8;">• ${r.course}</span>` : ""}
+          </div>
+          <div class="review-item-date">
+            ${date.toLocaleDateString()}
+          </div>
+        </div>
+        <div class="review-item-comment">${r.comment}</div>
+      `;
+
+      container.appendChild(item);
+    });
+  }
+
+  function handleReviewSubmit(event) {
+    event.preventDefault();
+    if (!selectedProfessorId) return;
+
+    const ratingSelect = document.getElementById("review-rating");
+    const courseInput = document.getElementById("review-course");
+    const commentInput = document.getElementById("review-comment");
+
+    const rating = Number(ratingSelect.value);
+    const comment = commentInput.value.trim();
+    const course = courseInput.value.trim();
+
+    if (!rating || !comment) {
+      alert("Please choose a rating and write a comment.");
+      return;
+    }
+
+    const reviews = loadAllReviews();
+    reviews.push({
+      id: "rev_" + Date.now(),
+      professorId: selectedProfessorId,
+      rating,
+      comment,
+      course: course || null,
+      createdAt: new Date().toISOString()
+    });
+    saveAllReviews(reviews);
+
+    // Clear form
+    ratingSelect.value = "";
+    courseInput.value = "";
+    commentInput.value = "";
+
+    // Refresh UI
+    selectProfessor(selectedProfessorId);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const search = document.getElementById("faculty-search");
+    const deptFilter = document.getElementById("faculty-dept-filter");
+    const form = document.getElementById("review-form");
+
+    search.addEventListener("input", renderFacultyList);
+    deptFilter.addEventListener("change", renderFacultyList);
+    form.addEventListener("submit", handleReviewSubmit);
+
+    // Initial render
+    if (facultyData.length) {
+      selectedProfessorId = facultyData[0].id;
+    }
+    renderFacultyList();
+    if (selectedProfessorId) {
+      selectProfessor(selectedProfessorId);
+    }
+  });
+</script>
+
+</body>
+</html>

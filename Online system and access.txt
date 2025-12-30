@@ -1,0 +1,13 @@
+﻿Question,Answer,Keywords
+ How can I reset my student portal password?,"On the UBT Opera login page, click“Forgot Password”and follow the instructions to reset it 
+using your registered email or SSN. If you still can’t access your account, contact IT Support.","Keywords: reset password, UBT Opera, forgot password, student portal, email, SSN, IT 
+support, account access."
+How can I access Blackboard?," Go to blackboard.ubt.edu.sa and sign in using your UBT email and password. From there, 
+you can access all your courses and materials.","Keywords: Blackboard login, blackboard.ubt.edu.sa, UBT email, password, online courses, 
+learning materials."
+What do I do if my Blackboard isn’t working?,"Try refreshing the page or using a different browser. If the issue continues, contact UBT IT 
+Support with your student ID and a screenshot of the error.","Keywords: Blackboard issue, troubleshooting, refresh page, different browser, error 
+screenshot, IT support, student ID."
+Where can I find my grades online?,"Log in to your UBT Opera portal, go to grades and you’ll see your midterm and overall 
+grades.","Keywords: check grades, UBT Opera, student portal, midterm grades, overall grades, online 
+results"

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI University Reception</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ⭐ PREMIUM WHITE HEADER WITH LOGO + NAV ⭐ -->
+<header>
+  <h1>AI University Reception</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="lostfound.html">Lost & Found</a>
+    <a href="coop.html">COOP</a>
+    <a href="faculty.html">Faculty Directory</a>
+    <a href="courseinfo.html">Course Information</a>
+    <a href="courseequalization.html">Course Equalization</a>
+    <a href="navigation.html">Campus Navigation</a>
+  </nav>
+
+  <div class="right-header">
+    <button id="theme-toggle" class="theme-btn">🌙</button>
+    <img src="images/logo.png" class="logo" alt="UBT Logo">
+  </div>
+</header>
+
+<!-- ⭐ MAIN HOMEPAGE CONTENT ⭐ -->
+<main class="content">
+
+  <section class="hero">
+    <h2>Welcome to the AI University Reception</h2>
+    <p>Your official digital assistant for academic support, campus services, and student guidance.</p>
+  </section>
+
+  <!-- Dashboard Cards -->
+  <section class="dashboard">
+
+    <div class="dash-card" onclick="openModal('about')">
+      <div class="icon">📘</div>
+      <h3>About</h3>
+      <p>Learn what the AI Reception can do for you.</p>
+    </div>
+
+    <div class="dash-card" onclick="openModal('lostfound')">
+      <div class="icon">🔎</div>
+      <h3>Lost & Found</h3>
+      <p>Report or search for lost items.</p>
+    </div>
+
+    <div class="dash-card" onclick="openModal('coop')">
+      <div class="icon">💼</div>
+      <h3>COOP Training</h3>
+      <p>Guidelines and upcoming opportunities.</p>
+    </div>
+
+    <div class="dash-card" onclick="openModal('courseinfo')">
+      <div class="icon">📚</div>
+      <h3>Course Information</h3>
+      <p>Get details about university courses.</p>
+    </div>
+
+    <div class="dash-card" onclick="openModal('equalization')">
+      <div class="icon">⚖️</div>
+      <h3>Course Equalization</h3>
+      <p>Transfer and equivalent course rules.</p>
+    </div>
+
+    <div class="dash-card" onclick="openModal('navigation')">
+      <div class="icon">📍</div>
+      <h3>Campus Navigation</h3>
+      <p>Find your way around the university.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <small>AI University Reception — Developed for UBT</small>
+</footer>
+
+<!-- ⭐ FLOATING CHAT WIDGET ⭐ -->
+<div id="chat-widget">
+  <div id="chat-header">
+    AI Assistant
+    <span id="chat-close">×</span>
+  </div>
+
+  <div id="chat-window"></div>
+
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="Type your message...">
+    <button id="chat-send">Send</button>
+  </div>
+</div>
+
+<!-- Chat Button -->
+<div id="chat-button">💬</div>
+
+<!-- ⭐ MODALS ⭐ -->
+<div id="modal-bg"></div>
+
+<div id="modal-box">
+  <span id="modal-close">×</span>
+  <div id="modal-content"></div>
+</div>
+
+<!-- ⭐ SCRIPTS ⭐ -->
+<script src="app.js"></script>
+<script src="chatwidget.js"></script>
+
+</body>
+</html>

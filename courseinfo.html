@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Information | AI Reception</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ⭐ GLOBAL HEADER (same as index/coop) ⭐ -->
+<header>
+  <div class="left-header">
+    <h1>AI University Reception</h1>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="lostfound.html">Lost & Found</a>
+    <a href="coop.html">COOP</a>
+    <a href="faculty.html">Faculty Directory</a>
+    <a href="courseinfo.html" class="active">Course Information</a>
+    <a href="courseequalization.html">Course Equalization</a>
+    <a href="navigation.html">Campus Navigation</a>
+  </nav>
+
+  <div class="right-header">
+    <button id="theme-toggle" class="theme-btn">🌙</button>
+    <img src="images/logo.png" class="logo" alt="UBT Logo">
+  </div>
+</header>
+
+<!-- ⭐ MAIN CONTENT ⭐ -->
+<main class="content course-page">
+
+  <!-- Hero -->
+  <section class="hero hero-courses">
+    <h2>Course Information</h2>
+    <p>
+      Explore the courses offered in the BAIS / Business program. Use the search and filters
+      below to quickly find a course, check its prerequisite, and read a short overview.
+    </p>
+    <div class="pill-row">
+      <span class="pill">Search by code or name</span>
+      <span class="pill">Filter by level</span>
+      <span class="pill">Course overview</span>
+    </div>
+  </section>
+
+  <!-- Controls -->
+  <section class="course-section">
+    <h3 class="section-title">Find a Course</h3>
+
+    <div class="course-controls">
+      <div class="control-group">
+        <label for="course-search">Search</label>
+        <input
+          type="text"
+          id="course-search"
+          placeholder="Type course name or code…">
+      </div>
+
+      <div class="control-group">
+        <label for="level-filter">Level</label>
+        <select id="level-filter">
+          <option value="">All levels</option>
+          <option value="0">Level 0</option>
+          <option value="1">Level 1</option>
+          <option value="2">Level 2</option>
+          <option value="3">Level 3</option>
+          <option value="4">Level 4</option>
+          <option value="5">Level 5</option>
+          <option value="6">Level 6</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="prereq-filter">Prerequisite</label>
+        <select id="prereq-filter">
+          <option value="">All</option>
+          <option value="none">No prerequisite</option>
+          <option value="has">Has prerequisite</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table + Card layout -->
+  <section class="course-section course-layout">
+    <div class="course-table-area">
+      <h3 class="section-title">Course List</h3>
+
+      <div class="table-wrapper">
+        <table class="course-table" id="courses-table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Course Name</th>
+              <th>Units</th>
+              <th>Prerequisite</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- ⭐ LEVEL 0 -->
+            <tr class="course-row"
+                data-code="ACCT101"
+                data-name="Principles of Accounting I"
+                data-level="0"
+                data-units="3"
+                data-prereq="EL 400-1"
+                data-has-prereq="true"
+                data-overview="Introduces the basic concepts and principles of financial accounting, including the accounting cycle, journal entries, ledgers and the preparation of basic financial statements.">
+              <td>ACCT101</td>
+              <td>Principles of Accounting I</td>
+              <td>3</td>
+              <td>EL 400-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ARAB101"
+                data-name="Arabic Language I"
+                data-level="0"
+                data-units="2"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="Develops students’ skills in Modern Standard Arabic, focusing on reading, writing and basic composition with emphasis on correct grammar and vocabulary usage.">
+              <td>ARAB101</td>
+              <td>Arabic Language I</td>
+              <td>2</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BUS101"
+                data-name="Principles of Management"
+                data-level="0"
+                data-units="3"
+                data-prereq="EL 400-1"
+                data-has-prereq="true"
+                data-overview="Provides an introduction to management concepts and functions such as planning, organizing, leading and controlling within modern organizations.">
+              <td>BUS101</td>
+              <td>Principles of Management</td>
+              <td>3</td>
+              <td>EL 400-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ENG101"
+                data-name="Academic English"
+                data-level="0"
+                data-units="3"
+                data-prereq="EL 400-1"
+                data-has-prereq="true"
+                data-overview="Strengthens academic reading, writing, listening and speaking skills required for university‑level study, with emphasis on essays, reports and presentations.">
+              <td>ENG101</td>
+              <td>Academic English</td>
+              <td>3</td>
+              <td>EL 400-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ISLS101"
+                data-name="Islamic Culture I"
+                data-level="0"
+                data-units="2"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="Introduces basic concepts of Islamic belief, worship and values, with emphasis on their role in everyday life and professional practice.">
+              <td>ISLS101</td>
+              <td>Islamic Culture I</td>
+              <td>2</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="MATH101"
+                data-name="Business Math"
+                data-level="0"
+                data-units="3"
+                data-prereq="EL 400-1, MATH099-1"
+                data-has-prereq="true"
+                data-overview="Covers fundamental mathematical tools used in business, including algebra, equations, simple functions and financial mathematics such as interest and annuities.">
+              <td>MATH101</td>
+              <td>Business Math</td>
+              <td>3</td>
+              <td>EL 400-1, MATH099-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <!-- ⭐ LEVEL 1 -->
+            <tr class="course-row"
+                data-code="ACCT102"
+                data-name="Principles of Accounting II"
+                data-level="1"
+                data-units="3"
+                data-prereq="ACCT101-2"
+                data-has-prereq="true"
+                data-overview="Continues Principles of Accounting I with more emphasis on financial statement analysis, accounting for assets, liabilities, equity and basic introduction to managerial accounting topics.">
+              <td>ACCT102</td>
+              <td>Principles of Accounting II</td>
+              <td>3</td>
+              <td>ACCT101-2</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BAIS101"
+                data-name="Introduction to Information Systems"
+                data-level="1"
+                data-units="3"
+                data-prereq="ENG101-7"
+                data-has-prereq="true"
+                data-overview="Provides an overview of information systems in organizations, including hardware, software, databases, networks and the strategic role of IT in supporting business processes.">
+              <td>BAIS101</td>
+              <td>Introduction to Information Systems</td>
+              <td>3</td>
+              <td>ENG101-7</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ENG102"
+                data-name="English for Specific Purposes"
+                data-level="1"
+                data-units="3"
+                data-prereq="ENG101-7"
+                data-has-prereq="true"
+                data-overview="Builds on Academic English with focus on business and IT contexts, including professional emails, reports, technical vocabulary and oral presentations.">
+              <td>ENG102</td>
+              <td>English for Specific Purposes</td>
+              <td>3</td>
+              <td>ENG101-7</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="HRM120"
+                data-name="Human Resource Management"
+                data-level="1"
+                data-units="3"
+                data-prereq="BUS101-1, ENG101-7"
+                data-has-prereq="true"
+                data-overview="Introduces the main HRM functions such as recruitment, selection, training, performance appraisal, compensation and employee relations in organizations.">
+              <td>HRM120</td>
+              <td>Human Resource Management</td>
+              <td>3</td>
+              <td>BUS101-1, ENG101-7</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="MKT120"
+                data-name="Marketing Principles"
+                data-level="1"
+                data-units="3"
+                data-prereq="ENG101-7, BUS101-1"
+                data-has-prereq="true"
+                data-overview="Covers core marketing concepts including consumer behavior, market segmentation, product, price, promotion and place decisions in local and global markets.">
+              <td>MKT120</td>
+              <td>Marketing Principles</td>
+              <td>3</td>
+              <td>ENG101-7, BUS101-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="SOC140"
+                data-name="Communication Skills"
+                data-level="1"
+                data-units="3"
+                data-prereq="EL 400-1"
+                data-has-prereq="true"
+                data-overview="Develops interpersonal, presentation and professional communication skills needed in academic and workplace settings, including teamwork and public speaking.">
+              <td>SOC140</td>
+              <td>Communication Skills</td>
+              <td>3</td>
+              <td>EL 400-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="STAT121"
+                data-name="Introduction to Statistics"
+                data-level="1"
+                data-units="3"
+                data-prereq="ENG101-7, MATH101-3"
+                data-has-prereq="true"
+                data-overview="Introduces descriptive and basic inferential statistics, including data summaries, probability concepts, distributions and estimation used in business decision making.">
+              <td>STAT121</td>
+              <td>Introduction to Statistics</td>
+              <td>3</td>
+              <td>ENG101-7, MATH101-3</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <!-- ⭐ LEVEL 2 -->
+            <tr class="course-row"
+                data-code="ARAB201"
+                data-name="Arabic Language II"
+                data-level="2"
+                data-units="2"
+                data-prereq="ARAB101-2"
+                data-has-prereq="true"
+                data-overview="Advances students’ Arabic writing and reading skills with more complex texts, grammar structures and academic composition.">
+              <td>ARAB201</td>
+              <td>Arabic Language II</td>
+              <td>2</td>
+              <td>ARAB101-2</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BUS230"
+                data-name="Business Communication"
+                data-level="2"
+                data-units="3"
+                data-prereq="ENG102-3"
+                data-has-prereq="true"
+                data-overview="Focuses on written and oral communication in business, including reports, memos, proposals, meetings and professional correspondence.">
+              <td>BUS230</td>
+              <td>Business Communication</td>
+              <td>3</td>
+              <td>ENG102-3</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BUS231"
+                data-name="Quantitative Business Analysis"
+                data-level="2"
+                data-units="3"
+                data-prereq="STAT121-1"
+                data-has-prereq="true"
+                data-overview="Applies quantitative techniques such as forecasting, optimization and decision models to support managerial decision making.">
+              <td>BUS231</td>
+              <td>Quantitative Business Analysis</td>
+              <td>3</td>
+              <td>STAT121-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ECON101"
+                data-name="Microeconomics"
+                data-level="2"
+                data-units="3"
+                data-prereq="ENG102-3"
+                data-has-prereq="true"
+                data-overview="Introduces microeconomic theory including demand and supply, elasticity, consumer and producer behavior, market structures and pricing.">
+              <td>ECON101</td>
+              <td>Microeconomics</td>
+              <td>3</td>
+              <td>ENG102-3</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="FIN230"
+                data-name="Financial Management"
+                data-level="2"
+                data-units="3"
+                data-prereq="ACCT101-2"
+                data-has-prereq="true"
+                data-overview="Covers basic financial management concepts including the time value of money, risk and return, capital budgeting and working capital management.">
+              <td>FIN230</td>
+              <td>Financial Management</td>
+              <td>3</td>
+              <td>ACCT101-2</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="SCM230"
+                data-name="Operations Management"
+                data-level="2"
+                data-units="3"
+                data-prereq="BUS101-1, STAT121-1"
+                data-has-prereq="true"
+                data-overview="Introduces operations and supply chain concepts such as process design, capacity, quality, inventory and scheduling in manufacturing and service organizations.">
+              <td>SCM230</td>
+              <td>Operations Management</td>
+              <td>3</td>
+              <td>BUS101-1, STAT121-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <!-- ⭐ LEVEL 3 -->
+            <tr class="course-row"
+                data-code="BAIS200"
+                data-name="Introduction to Programming"
+                data-level="3"
+                data-units="3"
+                data-prereq="BAIS101-1"
+                data-has-prereq="true"
+                data-overview="Teaches fundamental programming concepts such as variables, conditions, loops, arrays and functions using a high‑level programming language.">
+              <td>BAIS200</td>
+              <td>Introduction to Programming</td>
+              <td>3</td>
+              <td>BAIS101-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BAIS205"
+                data-name="Introduction to Business Analytics"
+                data-level="3"
+                data-units="3"
+                data-prereq="BAIS101-1, STAT121-1"
+                data-has-prereq="true"
+                data-overview="Introduces data‑driven decision making using business analytics concepts, basic data visualization and simple predictive techniques.">
+              <td>BAIS205</td>
+              <td>Introduction to Business Analytics</td>
+              <td>3</td>
+              <td>BAIS101-1, STAT121-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BUS240"
+                data-name="Organizational Behavior"
+                data-level="3"
+                data-units="3"
+                data-prereq="BUS101-1"
+                data-has-prereq="true"
+                data-overview="Explores human behavior in organizations, including motivation, leadership, group dynamics, culture and organizational change.">
+              <td>BUS240</td>
+              <td>Organizational Behavior</td>
+              <td>3</td>
+              <td>BUS101-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BUS241"
+                data-name="Business Law"
+                data-level="3"
+                data-units="3"
+                data-prereq="ENG101-7, BUS101-1"
+                data-has-prereq="true"
+                data-overview="Covers basic legal principles relevant to business, including contracts, agency, commercial transactions and the legal environment of business.">
+              <td>BUS241</td>
+              <td>Business Law</td>
+              <td>3</td>
+              <td>ENG101-7, BUS101-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ECON201"
+                data-name="Macroeconomics"
+                data-level="3"
+                data-units="3"
+                data-prereq="ECON101-1"
+                data-has-prereq="true"
+                data-overview="Introduces macroeconomic concepts such as national income, unemployment, inflation, monetary and fiscal policy and economic growth.">
+              <td>ECON201</td>
+              <td>Macroeconomics</td>
+              <td>3</td>
+              <td>ECON101-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ISLS201"
+                data-name="Islamic II"
+                data-level="3"
+                data-units="2"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="Continues Islamic Culture with focus on contemporary issues, ethics and applications of Islamic values in social and professional life.">
+              <td>ISLS201</td>
+              <td>Islamic II</td>
+              <td>2</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <!-- ⭐ LEVEL 4 -->
+            <tr class="course-row"
+                data-code="BAIS210"
+                data-name="Database Management"
+                data-level="4"
+                data-units="3"
+                data-prereq="BAIS101-1"
+                data-has-prereq="true"
+                data-overview="Covers database concepts, relational models, SQL and basic database design to support business applications.">
+              <td>BAIS210</td>
+              <td>Database Management</td>
+              <td>3</td>
+              <td>BAIS101-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BAIS300"
+                data-name="Business Application Development"
+                data-level="4"
+                data-units="3"
+                data-prereq="BAIS200-1"
+                data-has-prereq="true"
+                data-overview="Focuses on designing and building small‑scale business applications using programming and database technologies.">
+              <td>BAIS300</td>
+              <td>Business Application Development</td>
+              <td>3</td>
+              <td>BAIS200-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BUS350"
+                data-name="International Business"
+                data-level="4"
+                data-units="3"
+                data-prereq="BUS101-1, ECON201-1, MKT120-1"
+                data-has-prereq="true"
+                data-overview="Examines how businesses operate in the global environment, including trade theories, foreign direct investment, cultural differences and global strategies.">
+              <td>BUS350</td>
+              <td>International Business</td>
+              <td>3</td>
+              <td>BUS101-1, ECON201-1, MKT120-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BUS351"
+                data-name="Entrepreneurship"
+                data-level="4"
+                data-units="3"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="Introduces entrepreneurial thinking, opportunity recognition, business models and the process of starting and managing new ventures.">
+              <td>BUS351</td>
+              <td>Entrepreneurship</td>
+              <td>3</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ELCTBA1"
+                data-name="Major Elective I"
+                data-level="4"
+                data-units="3"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="A departmental elective that allows students to deepen their knowledge in a specialized topic within the major.">
+              <td>ELCTBA1</td>
+              <td>Major Elective I</td>
+              <td>3</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ELCTG1"
+                data-name="College Elective Requirement"
+                data-level="4"
+                data-units="3"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="A college‑wide elective that broadens the student’s knowledge outside the core major requirements.">
+              <td>ELCTG1</td>
+              <td>College Elective Requirement</td>
+              <td>3</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <!-- ⭐ LEVEL 5 -->
+            <tr class="course-row"
+                data-code="BAIS305"
+                data-name="E‑Commerce"
+                data-level="5"
+                data-units="3"
+                data-prereq="BAIS101-1, MKT120-1"
+                data-has-prereq="true"
+                data-overview="Covers electronic commerce models, online payment systems, digital marketing and the technologies that support online business.">
+              <td>BAIS305</td>
+              <td>E‑Commerce</td>
+              <td>3</td>
+              <td>BAIS101-1, MKT120-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BAIS310"
+                data-name="Web & Mobile App Development"
+                data-level="5"
+                data-units="3"
+                data-prereq="BAIS200-1"
+                data-has-prereq="true"
+                data-overview="Introduces the fundamentals of developing web and basic mobile applications with a focus on front‑end and simple back‑end integration.">
+              <td>BAIS310</td>
+              <td>Web &amp; Mobile App Development</td>
+              <td>3</td>
+              <td>BAIS200-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BAIS405"
+                data-name="System Analysis & Design"
+                data-level="5"
+                data-units="3"
+                data-prereq="BAIS210-1"
+                data-has-prereq="true"
+                data-overview="Covers the systems development life cycle, requirements analysis, modeling techniques and design of information systems.">
+              <td>BAIS405</td>
+              <td>System Analysis &amp; Design</td>
+              <td>3</td>
+              <td>BAIS210-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ELCTBA2"
+                data-name="Major Elective II"
+                data-level="5"
+                data-units="3"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="A second major elective that allows further specialization within the student’s field of study.">
+              <td>ELCTBA2</td>
+              <td>Major Elective II</td>
+              <td>3</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ELCTG2"
+                data-name="College Elective Requirement"
+                data-level="5"
+                data-units="3"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="A second college elective that complements the major with additional interdisciplinary knowledge.">
+              <td>ELCTG2</td>
+              <td>College Elective Requirement</td>
+              <td>3</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ISLS301"
+                data-name="Islamic Culture III (Business Ethics)"
+                data-level="5"
+                data-units="3"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="Discusses Islamic perspectives on business ethics, social responsibility and ethical decision making in professional life.">
+              <td>ISLS301</td>
+              <td>Islamic Culture III (Business Ethics)</td>
+              <td>3</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <!-- ⭐ LEVEL 6 -->
+            <tr class="course-row"
+                data-code="BAIS400"
+                data-name="Decision Support System"
+                data-level="6"
+                data-units="3"
+                data-prereq="BAIS101-1, BUS231-1"
+                data-has-prereq="true"
+                data-overview="Explores decision support systems, data‑driven decision making and tools that help managers analyze complex business problems.">
+              <td>BAIS400</td>
+              <td>Decision Support System</td>
+              <td>3</td>
+              <td>BAIS101-1, BUS231-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BAIS410"
+                data-name="Data Communication & Networking"
+                data-level="6"
+                data-units="3"
+                data-prereq="BAIS300-1"
+                data-has-prereq="true"
+                data-overview="Covers basic concepts of data communication, network architectures, protocols and infrastructure needed to support business applications.">
+              <td>BAIS410</td>
+              <td>Data Communication &amp; Networking</td>
+              <td>3</td>
+              <td>BAIS300-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BAIS415"
+                data-name="Data Mining & Analysis"
+                data-level="6"
+                data-units="3"
+                data-prereq="BAIS210-1"
+                data-has-prereq="true"
+                data-overview="Introduces data mining concepts and techniques for discovering patterns and insights from large data sets to support business decisions.">
+              <td>BAIS415</td>
+              <td>Data Mining &amp; Analysis</td>
+              <td>3</td>
+              <td>BAIS210-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BUS470"
+                data-name="Research Methods"
+                data-level="6"
+                data-units="3"
+                data-prereq="STAT121-1, BUS351-1, BUS101-1"
+                data-has-prereq="true"
+                data-overview="Covers research design, data collection, analysis and reporting techniques used in business and management research.">
+              <td>BUS470</td>
+              <td>Research Methods</td>
+              <td>3</td>
+              <td>STAT121-1, BUS351-1, BUS101-1</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="BUS471"
+                data-name="Strategic Management"
+                data-level="6"
+                data-units="3"
+                data-prereq="FIN230-1, HRM120-1, MKT120-1, SCM230-2"
+                data-has-prereq="true"
+                data-overview="A capstone course integrating knowledge from different business areas to formulate, implement and evaluate organizational strategies.">
+              <td>BUS471</td>
+              <td>Strategic Management</td>
+              <td>3</td>
+              <td>FIN230-1, HRM120-1, MKT120-1, SCM230-2</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+            <tr class="course-row"
+                data-code="ELCTBA3"
+                data-name="Major Elective III"
+                data-level="6"
+                data-units="3"
+                data-prereq="None"
+                data-has-prereq="false"
+                data-overview="A third major elective that allows students to complete their specialization requirements.">
+              <td>ELCTBA3</td>
+              <td>Major Elective III</td>
+              <td>3</td>
+              <td>None</td>
+              <td><button class="view-course-btn">View</button></td>
+            </tr>
+
+          </tbody>
+        </table>
+        <p id="no-results" class="no-results" style="display:none;">
+          No courses match your search or filters.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card area -->
+    <aside class="course-card" id="course-details-card">
+      <p class="course-card-placeholder">
+        Select a course from the table to view its details.
+      </p>
+    </aside>
+  </section>
+
+</main>
+
+<footer>
+  <small>AI University Reception — Developed for UBT</small>
+</footer>
+
+<!-- Floating Chat Widget -->
+<div id="chat-widget">
+  <div id="chat-header">
+    AI Assistant
+    <span id="chat-close">×</span>
+  </div>
+  <div id="chat-window"></div>
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="Type your message...">
+    <button id="chat-send">Send</button>
+  </div>
+</div>
+
+<div id="chat-button">💬</div>
+
+<script src="app.js"></script>
+<script src="chatwidget.js"></script>
+<script src="courseinfo.js"></script>
+<!-- COURSE INFO MODAL -->
+<div id="course-modal-bg">
+    <div id="course-modal">
+        <button id="course-modal-close">×</button>
+        <div id="course-modal-content"></div>
+    </div>
+</div>
+
+</body>
+</html>

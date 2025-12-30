@@ -1,0 +1,14 @@
+﻿Questions,Answer,Keywords
+ What facilities are available at the Corniche campus?,"The Corniche Campus includes modern classrooms, computer labs, a library, and sports and 
+fitness areas. It also has a cafeteria, prayer rooms, and parking areas for students and staff.","Keywords: Corniche campus, facilities, classrooms, computer labs, library, sports area, fitness 
+area, cafeteria, prayer rooms, parking, student services"
+Is there parking available for students?," Yes, parking is available for students at the Corniche Campus.","Keywords: student parking, Corniche campus, parking availability, student access, campus 
+parking."
+ Where is the cafeteria located?, The cafeteria is located on the basement floor (B1) of the Corniche Campus.,"Keywords: cafeteria location, basement floor, B1, Corniche campus, food court, student 
+dining."
+What restaurants or coffee shops are inside the campus?," There are several options inside the Corniche Campus, including Starbucks, Toasted, Zed, 
+and 7 Market."," campus restaurants, coffee shops, Starbucks, Toasted, Zed, 7 Market, food options, cafeteria."
+ Is there a library at the Corniche campus?," Yes, there is a library located on the ground floor of the Corniche Campus."," Keywords: library, Corniche campus, ground floor, study area, books, student resources."
+ Who do I contact for lost and found items?,"There is a designated place for lost and found items, and the security office can help you 
+locate or return your belongings","Keywords: lost and found, Corniche campus, security office, report lost items, retrieve 
+belongings, student support"
